@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Missing Person Alert - Muneeshwaran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -63,7 +65,11 @@
             font-weight: bold;
             color: #c70000;
             margin-top: 20px;
+        }
+
+        #blink {
             animation: blink 1s infinite;
+            font-size: 4rem;
         }
 
         @keyframes blink {
@@ -110,15 +116,41 @@
             padding: 10px;
             border: 1px solid #ccc;
         }
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            padding: 10px 16px;
+            margin: 6px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 8px;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #1ebe5b; /* Slightly darker green on hover */
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="reward">
-            💰 <strong>₹10,00,000 (Ten Lakh Rupees) Reward</strong>
+            <strong>REWARD</strong><br>
+            <span id="blink">💰<strong>₹10,00,000</strong></span><br>
+            <strong>(Ten Lakh Rupees)</strong><br>
             Will be given to anyone who finds or helps locate <strong>Muneeshwaran</strong>.
         </div>
         <h1>-- Reward still on Unclaimed --</h1>
+        <h2><span class="current-date"></span></h2>
         <h1>Help Us to find Muneeshwaran</h1>
         <h2><strong>Name:</strong> Muneeshwaran</h2>
         <p class="info"><strong>Age: 40</strong></p>
@@ -132,9 +164,9 @@
         </div>
 
 
-        <div class="date" id="date-info">
-            Missing from 30 August 2023 till today <span id="current-date"></span>
-        </div>
+        <h1 class="date" id="date-info">
+            Missing from 30 August 2023 till today <span class="current-date"></span>
+        </h1>
 
         <p class="notice">
             🧍‍♂ <strong>MISSING PERSON – MUNEESHWARAN (AGE 43)</strong><br>
@@ -150,12 +182,16 @@
 
             <strong>Please share. Please help.</strong> Every post, every share, every prayer brings us one step closer to bringing him home.
         </p>
-
-
+        
         <div class="contact">
-            📞 <strong>Whatsapp:</strong> <a href="https://wa.me/917200263991" target="_blank">+91 72002 63991</a><br>
-            📞 <strong>Whatsapp:</strong> <a href="https://wa.me/919111222844" target="_blank">+91 9111 222 844</a><br>
+            <a href="https://wa.me/917200263991" target="_blank" class="whatsapp-btn">
+                <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp +91 72002 63991
+            </a><br>
+            <a href="https://wa.me/919111222844" target="_blank" class="whatsapp-btn">
+                <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp +91 9111 222 844
+            </a>
         </div>
+
 
         <footer>
             Also you can reach out to the nearest police station immediately.
@@ -170,7 +206,11 @@
             month: 'long',
             year: 'numeric'
         });
-        document.getElementById("current-date").textContent = formattedDate;
+        var dateFields = document.querySelectorAll(".current-date");
+        dateFields.forEach(function(dateElement) {
+            dateElement.textContent = formattedDate;
+        });
+
     </script>
 
 </body>
