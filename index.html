@@ -1,217 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Missing Person Alert - Muneeshwaran</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missing Person Alert - Muneeshwaran</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #292929;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #121212;
+        color: #f1f1f1;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+    }
 
-        .container {
-            background: white;
-            border-radius: 10px;
-            max-width: 1200px;
-            margin: auto;
-            padding: 30px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    .container {
+        background: #1e1e1e;
+        border-radius: 12px;
+        width: 95%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        text-align: center;
+    }
+
+    h1, h2 {
+        color: #ff4c4c;
+        margin: 8px 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        color: #f5f5f5;
+    }
+
+    .reward {
+        color: #ff4c4c;
+        font-size: 1.7rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+
+    #blink {
+        animation: blink 1s infinite;
+        font-size: 2.7rem;
+        display: inline-block;
+        margin: 10px 0;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+    .person-image {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        border-radius: 10px;
+        border: 3px solid #ff4c4c;
+        margin: 15px auto;
+    }
+
+    .additional-images {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .additional-images img {
+        width: 80px;
+        height: 120px;
+        border-radius: 8px;
+        border: 1.5px solid #666;
+        object-fit: cover;
+    }
+
+    .info, .date {
+        color: #ccc;
+        font-size: 1rem;
+        margin: 8px 0;
+    }
+
+    .notice {
+        background: rgba(255, 76, 76, 0.1);
+        border: 1.5px solid #ff4c4c;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: left;
+        color: #f1f1f1;
+        font-size: 0.95rem;
+        margin-top: 20px;
+        line-height: 1.6;
+    }
+
+    .contact {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .whatsapp-btn {
+        display: block;
+        background-color: #25D366;
+        color: white;
+        padding: 12px;
+        margin: 8px auto;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        max-width: 320px;
+        transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .whatsapp-btn i {
+        margin-right: 8px;
+        font-size: 1.3rem;
+        vertical-align: middle;
+    }
+
+    .whatsapp-btn:hover {
+        background-color: #1ebe5b;
+        transform: scale(1.03);
+    }
+
+    footer {
+        font-size: 0.85rem;
+        color: #bbb;
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    @media (max-width: 480px) {
+        .reward {
+            font-size: 1.1rem;
         }
 
         h1 {
-            color: #c70000;
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
 
         h2 {
-            color: #222;
-            margin-top: 0;
-        }
-
-        .person-image {
-            width: 250px;
-            height: 300px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 3px solid #c70000;
-            margin: 10px auto;
-        }
-
-        .additional-images {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .additional-images img {
-            width: 120px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 8px;
-            border: 2px solid #aaa;
-        }
-
-        .reward {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #c70000;
-            margin-top: 20px;
-        }
-
-        #blink {
-            animation: blink 1s infinite;
-            font-size: 4rem;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .info {
-            font-size: 1.5rem;
-            color: #333;
-            margin-top: 10px;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        footer {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: #666;
+            font-size: 1.1rem;
         }
 
         .notice {
-            background-color: #fff5f5;
-            border: 2px solid #c70000;
-            border-radius: 8px;
-            padding: 12px;
-            color: #b00000;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 20px;
-            text-align: left;
+            font-size: 0.9rem;
         }
 
-        .contact {
-            margin-top: 15px;
-            font-size: 1.1rem;
-            color: #222;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 10px;
-            border: 1px solid #ccc;
-        }
         .whatsapp-btn {
-            display: inline-block;
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            padding: 10px 16px;
-            margin: 6px 0;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+            font-size: 0.95rem;
+            padding: 10px;
         }
-
-        .whatsapp-btn i {
-            margin-right: 8px;
-            font-size: 18px;
-            vertical-align: middle;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #1ebe5b; /* Slightly darker green on hover */
-        }
-
-    </style>
+    }
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="reward">
-            <strong>REWARD</strong><br>
-            <span id="blink">💰<strong>₹10,00,000</strong></span><br>
-            <strong>(Ten Lakh Rupees)</strong><br>
-            Will be given to anyone who finds or helps locate <strong>Muneeshwaran</strong>.
-        </div>
-        <h1>-- Reward still on Unclaimed --</h1>
-        <h2><span class="current-date"></span></h2>
-        <h1>Help Us to find Muneeshwaran</h1>
-        <h2><strong>Name:</strong> Muneeshwaran</h2>
-        <p class="info"><strong>Age: 40</strong></p>
-        <img src="img/img1.jpg" alt="Muneeshwaran" class="person-image">
-
-        <div class="additional-images">
-            <img src="img/img1.jpg" alt="Additional Image 1">
-            <img src="img/img2.jpg" alt="Additional Image 2">
-            <img src="img/img3.jpg" alt="Additional Image 3">
-            <img src="img/img4.jpg" alt="Additional Image 4">
-        </div>
-
-
-        <h1 class="date" id="date-info">
-            Missing from 30 August 2023 till<br>today <span class="current-date"></span>
-        </h1>
-
-        <p class="notice">
-            🧍‍♂ <strong>MISSING PERSON – MUNEESHWARAN (AGE 43)</strong><br>
-            📅 <strong>Posted on:</strong> 11.11.2025<br><br>
-            Our hearts are heavy. His children and family members wait every single day — looking down every road, praying for his safe return. Their eyes search. Their hope never fades.<br><br>
-
-            💔 The ₹10,00,000 reward is not just money — it’s a symbol of our love, our desperation, and our faith.<br>
-            🙏 If you help us find him, you won’t just receive a reward — you’ll receive crores of blessings for you and your family from those who miss him dearly.<br><br>
-
-            📞 <strong>Contact:</strong> +91 72002 63991 / +91 9111 222 844<br>
-            📍 <strong>Police Station:</strong> Chennai, Thiruverkadu, Tamil Nadu, 600077<br>
-            👤 <strong>Contact Person:</strong> Dharma<br><br>
-
-            <strong>Please share. Please help.</strong> Every post, every share, every prayer brings us one step closer to bringing him home.
-        </p>
-        
-        <div class="contact">
-            <a href="https://wa.me/917200263991" target="_blank" class="whatsapp-btn">
-                <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp +91 72002 63991
-            </a><br>
-            <a href="https://wa.me/919111222844" target="_blank" class="whatsapp-btn">
-                <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp +91 9111 222 844
-            </a>
-        </div>
-
-
-        <footer>
-            Also you can reach out to the nearest police station immediately.
-        </footer>
+<div class="container">
+    <div class="reward">
+        <strong>REWARD</strong><br>
+        <span id="blink">💰<strong>₹10,00,000</strong></span><br>
+        <strong>(Ten Lakh Rupees)</strong><br>
+        Will be given to anyone who finds or helps locate <strong>Muneeshwaran</strong>.
     </div>
 
-    <script>
-        // Auto update current date
-        const today = new Date();
-        const formattedDate = today.toLocaleDateString('en-IN', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-        });
-        var dateFields = document.querySelectorAll(".current-date");
-        dateFields.forEach(function(dateElement) {
-            dateElement.textContent = formattedDate;
-        });
+    <h1>Reward Still Unclaimed</h1>
+    <h2><span class="current-date"></span></h2>
 
-    </script>
+    <h1>Help Us Find Muneeshwaran</h1>
+    <h2><strong>Name:</strong> Muneeshwaran</h2>
+    <p class="info"><strong>Age:</strong> 40</p>
 
+    <img src="img/img1.jpg" alt="Muneeshwaran" class="person-image">
+
+    <div class="additional-images">
+        <img src="img/img1.jpg" alt="Additional Image 1">
+        <img src="img/img2.jpg" alt="Additional Image 2">
+        <img src="img/img3.jpg" alt="Additional Image 3">
+        <img src="img/img4.jpg" alt="Additional Image 4">
+    </div>
+
+    <h2 class="date">
+        Missing since 30 August 2023<br>till today <span class="current-date"></span>
+    </h2>
+
+    <p class="notice">
+        🧍‍♂ <strong>MISSING PERSON – MUNEESHWARAN (AGE 43)</strong><br>
+        📅 <strong>Posted on:</strong> 11.11.2025<br><br>
+        Our hearts are heavy. His children and family members wait every single day — looking down every road, praying for his safe return. Their eyes search. Their hope never fades.<br><br>
+        💔 The ₹10,00,000 reward is not just money — it’s a symbol of our love, our desperation, and our faith.<br>
+        🙏 If you help us find him, you won’t just receive a reward — you’ll receive crores of blessings for you and your family from those who miss him dearly.<br><br>
+        📞 <strong>Contact:</strong> +91 72002 63991 / +91 9111 222 844<br>
+        📍 <strong>Police Station:</strong> Chennai, Thiruverkadu, Tamil Nadu, 600077<br>
+        👤 <strong>Contact Person:</strong> Dharma<br><br>
+        <strong>Please share. Please help.</strong> Every post, every share, every prayer brings us one step closer to bringing him home.
+    </p>
+
+    <div class="contact">
+        <a href="https://wa.me/917200263991" target="_blank" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp +91 72002 63991
+        </a>
+        <a href="https://wa.me/919111222844" target="_blank" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp +91 9111 222 844
+        </a>
+    </div>
+
+    <footer>
+        You can also reach out to the nearest police station immediately.
+    </footer>
+</div>
+
+<script>
+    // Auto update current date
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-IN', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    });
+    document.querySelectorAll(".current-date").forEach(el => {
+        el.textContent = formattedDate;
+    });
+</script>
 </body>
 </html>
